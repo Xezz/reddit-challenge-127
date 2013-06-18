@@ -18,7 +18,7 @@ public class PhoneNumber {
 
         PhoneNumber that = (PhoneNumber) o;
 
-        if (phoneNumber != that.phoneNumber) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(that.phoneNumber) : that.phoneNumber != null) return false;
 
         return true;
     }
@@ -26,5 +26,12 @@ public class PhoneNumber {
     @Override
     public int hashCode() {
         return phoneNumber != null ? phoneNumber.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "PhoneNumber{" +
+                "phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

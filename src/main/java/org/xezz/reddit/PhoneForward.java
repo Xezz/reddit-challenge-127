@@ -21,6 +21,26 @@ public class PhoneForward {
         return day >= startDay && day <= startDay + duration;
     }
 
+    public PhoneChain getChain() {
+        return chain;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public int getStartDay() {
+        return startDay;
+    }
+
+    public PhoneNumber getOwnNumber() {
+        return chain.getOwnNumber();
+    }
+
+    public PhoneNumber getTargetNumber() {
+        return chain.getTargetNumber();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,5 +61,14 @@ public class PhoneForward {
         result = 31 * result + duration;
         result = 31 * result + (chain != null ? chain.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "PhoneForward{" +
+                "chain=" + chain +
+                ", startDay=" + startDay +
+                ", duration=" + duration +
+                '}';
     }
 }

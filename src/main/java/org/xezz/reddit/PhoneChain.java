@@ -41,4 +41,12 @@ public class PhoneChain {
         result = 31 * result + (targetNumber != null ? targetNumber.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "PhoneChain{" +
+                "ownNumber=" + ownNumber +
+                ", targetNumber=" + targetNumber +
+                '}';
+    }
 }

@@ -14,6 +14,6 @@ public class App {
 
         final String dayToLookFor = "2";
 
-        
+
     }
 }
