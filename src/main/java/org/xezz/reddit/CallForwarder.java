@@ -7,6 +7,7 @@ import java.util.List;
  * User: Xezz
  * Date: 18.06.13
  * Time: 16:57
+ * Manages the call forwarding
  */
 public class CallForwarder {
     private List<PhoneForward> phoneForwards;
@@ -29,6 +30,12 @@ public class CallForwarder {
         return specificForwards;
     }
 
+    /**
+     * Get the longest forwarding chain for a specific day
+     *
+     * @param day the day to check for the chain lenght
+     * @return length of the longest chain
+     */
     public int getLongestChainByDay(final int day) {
         final List<PhoneForward> allForwardsByDay = getAllForwardsByDay(day);
         if (allForwardsByDay.size() == 0) {
@@ -47,6 +54,14 @@ public class CallForwarder {
         return chainLength;
     }
 
+    /**
+     * Get recursively the amount of precursors
+     *
+     * @param pf           PhoneForward to check
+     * @param list         List of all remaining PhoneForwards
+     * @param currentCount the current count of found forwards
+     * @return total amount of found forwards or currentcount if none were found
+     */
     private int getAmountOfPrecursorsAndRemoveThem(PhoneForward pf, List<PhoneForward> list, int currentCount) {
         for (PhoneForward value : list) {
             if (value.getTargetNumber().equals(pf.getOwnNumber())) {
@@ -58,6 +73,14 @@ public class CallForwarder {
         return currentCount;
     }
 
+    /**
+     * Get recursively the amount of successors
+     *
+     * @param pf           PhoneForward to check
+     * @param list         List of all remaining PhoneForwards
+     * @param currentCount the current count of found forwards
+     * @return total amount of forwards or currentcount none were found
+     */
     private int getAmountOfSuccessorsAndRemoveThem(PhoneForward pf, List<PhoneForward> list, int currentCount) {
         for (PhoneForward value : list) {
             if (value.getOwnNumber().equals(pf.getTargetNumber())) {

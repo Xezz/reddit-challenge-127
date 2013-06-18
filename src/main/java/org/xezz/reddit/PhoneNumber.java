@@ -1,5 +1,8 @@
 package org.xezz.reddit;
 
+/**
+ * A simple representation of a PhoneNumber
+ */
 public class PhoneNumber {
     private final String phoneNumber;
 

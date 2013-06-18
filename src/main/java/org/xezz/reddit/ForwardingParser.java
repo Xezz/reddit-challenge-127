@@ -18,4 +18,7 @@ public class ForwardingParser {
         int duration = Integer.parseInt(splitString[3]);
         return new PhoneForward(new PhoneChain(ownNumber, targetNumber), startDay, duration);
     }
+
+    private ForwardingParser() {
+    }
 }

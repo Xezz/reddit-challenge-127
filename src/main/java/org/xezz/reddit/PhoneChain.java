@@ -4,6 +4,7 @@ package org.xezz.reddit;
  * User: Xezz
  * Date: 18.06.13
  * Time: 16:07
+ * A PhoneChain represents a source and target PhoneNumber representation
  */
 public class PhoneChain {
     final PhoneNumber ownNumber;
@@ -14,10 +15,20 @@ public class PhoneChain {
         this.targetNumber = targetNumber;
     }
 
+    /**
+     * Get the own number
+     *
+     * @return PhoneNumber which is the owner
+     */
     public PhoneNumber getOwnNumber() {
         return ownNumber;
     }
 
+    /**
+     * Get the target PhoneNumber
+     *
+     * @return PhoneNumber which is the target
+     */
     public PhoneNumber getTargetNumber() {
         return targetNumber;
     }
